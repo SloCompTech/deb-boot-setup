@@ -1,0 +1,22 @@
+#
+#		Boot setup start script config
+#		
+#		@see https://docs.fedoraproject.org/en-US/quick-docs/understanding-and-administering-systemd/index.html
+#		@see https://fedoraproject.org/wiki/SysVinit_to_Systemd_Cheatsheet
+#		@see https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/
+#		@see https://www.raspberrypi.org/documentation/linux/usage/systemd.md
+#		@see https://www.sparkfun.com/news/2779
+#
+[Unit]
+Description=Setup scripts to run on Boot
+Documentation=https://github.com/SloCompTech/rpi-boot-setup
+
+After=boot.mount networking.service 
+Requires=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/bootsetup/bootsetup.sh
+
+[Install]
+WantedBy=multi-user.target

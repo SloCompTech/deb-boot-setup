@@ -1,0 +1,9 @@
+Package: bootsetup
+Version: 1.0-1
+Section: admin
+Priority: optional
+Architecture: all
+Depends: bash, sed, coreutils
+Maintainer: Martin Dagarin <martin.dagarin@gmail.com>
+Description: Bootsetup scripting system
+ Setups system on boot based on settings in /boot partition

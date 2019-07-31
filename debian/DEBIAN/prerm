@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#
+#		Pre-removal script
+#
+systemctl disable bootsetup

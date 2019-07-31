@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#
+#		Postinstall script
+#
+
+# Enable service
+systemctl enable bootsetup
