@@ -24,6 +24,9 @@ fi
 # Get new hostname
 host_name="$(cat $HOST_FILE)"
 
+# Remove file
+rm $HOST_FILE
+
 # If hostname already set or empty
 if [ -z "$host_name" ] || [ "$(hostname)" == "$host_name" ]; then
 	exit 0
