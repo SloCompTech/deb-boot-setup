@@ -36,6 +36,16 @@ systemctl status bootsetup
 	upgrade # Update & upgrade using apt
 ```
 
+## Contributing
+
+### Make additional settings
+
+- Create script for parameter in `root/etc/bootsetup/scripts`.
+- Make script **EXECUTABLE !!**.
+- Add info below *## Config folder structure*.
+- Add detailed documentation in docs folder.
+- Make pull request.
+
 ## Issues
 
 Submit issue [here](https://github.com/SloCompTech/deb-boot-setup/issues).  
