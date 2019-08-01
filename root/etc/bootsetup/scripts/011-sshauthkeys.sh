@@ -12,7 +12,10 @@
 #	@see https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
 #	@see https://kb.iu.edu/d/aews
 #	@see https://www.linode.com/docs/security/authentication/use-public-key-authentication-with-ssh/
-#	
+#	@see https://www.howtoforge.com/set-up-ssh-with-public-key-authentication-debian-etch
+#	@see https://serverpilot.io/docs/how-to-use-ssh-public-key-authentication
+#	@see https://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/
+#	@see https://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/
 #
 
 # Check for sshauth directories
