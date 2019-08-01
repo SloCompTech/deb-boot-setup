@@ -26,6 +26,7 @@ systemctl status bootsetup
 
 ```
 /boot/bootsetup
+	custom/	# Directory with custom scripts
 	hostname # Sets device hostname
 	lock # Locks down bootsetup system
 	passwd-USER # Sets user password
