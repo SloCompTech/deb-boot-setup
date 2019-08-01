@@ -3,8 +3,15 @@
 #
 #		Main bootsetup script
 #
-export BOOTSETUP_ROOT=/boot/bootsetup
+
 export BOOTSETUP_BIN=/etc/bootsetup
+export BOOTSETUP_ROOT=/boot/bootsetup
+
+# Check for lock file
+if [ -f "$BOOTSETUP_BIN/lock" ]; then
+	echo "Bootsetup: Bootsetup locked"
+	exit 0
+fi
 
 # Check if boot partition exists
 if [ ! -d "/boot" ]; then
@@ -38,3 +45,14 @@ do
 	# Execute script
 	$script
 done
+
+# Check for lockfile (and lock bootsetup)
+if [ -f "$BOOTSETUP_ROOT/lock" ]; then
+	# Remove lockfile
+	rm $BOOTSETUP_ROOT/lock
+
+	# Create real lockfile
+	touch $BOOTSETUP_BIN/lock
+
+	echo "Bootsetup: Locked down"
+fi

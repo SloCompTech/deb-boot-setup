@@ -24,6 +24,7 @@ dpkg -i <name>.deb
 ```
 /boot/bootsetup
 	hostname # Sets device hostname
+	lock # Locks down bootsetup system
 	passwd-USER # Sets user password
 	rootfs/	# Copies files to system (structured as from /)
 	sshauth-USER # Add SSH keys to authorized_keys for user
