@@ -24,6 +24,7 @@ dpkg -i <name>.deb
 ```
 /boot/bootsetup
 	hostname # Sets device hostname
+	passwd-USER # Sets user password
 	sshauth-USER # Add SSH keys to authorized_keys for user
 	sshreset # Reset SSH keys
 	upgrade # Update & upgrade using apt
