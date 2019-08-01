@@ -1,17 +1,17 @@
 #!/bin/bash
 
 #
-#		Configure hostname
-#		File: hostname
-#		Description: Put hostname in file hostname
+#	Configure hostname
+#	File: hostname
+#	Description: Put hostname in file hostname
 #
-#		@see https://raspberrypi.stackexchange.com/questions/78092/how-do-i-change-the-hostname-without-rebooting
-#		@see https://gist.github.com/dweeber/4055331
-#		@see https://www.raspberrypi-spy.co.uk/2012/11/how-to-rename-your-raspberry-pi/
-#		@see https://slippytrumpet.io/posts/raspberry-pi-zero-w-setup/
-#		@see https://www.cyberciti.biz/faq/ubuntu-change-hostname-command/
-#		@see https://docs.dataplicity.com/docs/install-dataplicity-on-many-devices
-#		@see https://vicpimakers.ca/tutorials/raspbian/change-the-raspberry-pis-hostname/
+#	@see https://raspberrypi.stackexchange.com/questions/78092/how-do-i-change-the-hostname-without-rebooting
+#	@see https://gist.github.com/dweeber/4055331
+#	@see https://www.raspberrypi-spy.co.uk/2012/11/how-to-rename-your-raspberry-pi/
+#	@see https://slippytrumpet.io/posts/raspberry-pi-zero-w-setup/
+#	@see https://www.cyberciti.biz/faq/ubuntu-change-hostname-command/
+#	@see https://docs.dataplicity.com/docs/install-dataplicity-on-many-devices
+#	@see https://vicpimakers.ca/tutorials/raspbian/change-the-raspberry-pis-hostname/
 #
 
 HOST_FILE=$BOOTSETUP_ROOT/hostname

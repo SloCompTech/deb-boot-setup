@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #
-#		Reset SSH configuration (usefull when using same image over and over)
-#		File: sshreset
+#	Reset SSH configuration (usefull when using same image over and over)
+#	File: sshreset
 #
-#		@see http://banoffeepiserver.com/change-default-settings.html
-#		@see https://www.cyberciti.biz/faq/howto-regenerate-openssh-host-keys/
+#	@see http://banoffeepiserver.com/change-default-settings.html
+#	@see https://www.cyberciti.biz/faq/howto-regenerate-openssh-host-keys/
 #
 
 FLAG_FILE=$BOOTSETUP_ROOT/sshreset
