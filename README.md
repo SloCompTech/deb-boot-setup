@@ -24,4 +24,6 @@ dpkg -i <name>.deb
 ```
 /boot/bootsetup
 	hostname # Sets device hostname
+	sshreset # Reset SSH keys
+	upgrade # Update & upgrade using apt
 ```
