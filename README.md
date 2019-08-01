@@ -17,6 +17,9 @@ make
 
 # Install .deb
 dpkg -i <name>.deb
+
+# View logs
+systemctl status bootsetup
 ```
 
 ## Config folder structure
@@ -31,3 +34,11 @@ dpkg -i <name>.deb
 	sshreset # Reset SSH keys
 	upgrade # Update & upgrade using apt
 ```
+
+## Issues
+
+Submit issue [here](https://github.com/SloCompTech/deb-boot-setup/issues).  
+
+## Versioning
+
+We use [Debian versioning](https://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-version) for versioning.
