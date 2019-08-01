@@ -9,7 +9,7 @@
 #
 [Unit]
 Description=Setup scripts to run on Boot
-Documentation=https://github.com/SloCompTech/rpi-boot-setup
+Documentation=https://github.com/SloCompTech/deb-boot-setup
 
 After=boot.mount networking.service 
 Requires=network.target
