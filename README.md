@@ -26,6 +26,7 @@ systemctl status bootsetup
 
 ```
 /boot/bootsetup
+	bashhistory # Clear bash history
 	custom/	# Directory with custom scripts
 	hostname # Sets device hostname
 	lock # Locks down bootsetup system
