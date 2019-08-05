@@ -11,7 +11,7 @@
 Description=Setup scripts to run on Boot
 Documentation=https://github.com/SloCompTech/deb-boot-setup
 
-After=boot.mount networking.service 
+After=boot.mount networking.service docker.service
 Requires=network.target
 
 [Service]
