@@ -6,17 +6,18 @@
 #		@see https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/
 #		@see https://www.raspberrypi.org/documentation/linux/usage/systemd.md
 #		@see https://www.sparkfun.com/news/2779
+#		@see https://blog.container-solutions.com/running-docker-containers-with-systemd
 #
 [Unit]
-Description=Setup scripts to run on Boot
+Description=Setup docker scripts to run on Boot
 Documentation=https://github.com/SloCompTech/deb-boot-setup
-After=boot.mount
-After=networking.service
-Requires=network.target
+After=docker.service
+Requires=docker.service
 
 [Service]
+TimeoutStartSec=0
 Type=oneshot
-ExecStart=/etc/bootsetup/bootsetup.sh
+ExecStart=/etc/bootsetup/bootsetup-docker.sh
 
 [Install]
 WantedBy=multi-user.target

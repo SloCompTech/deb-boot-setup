@@ -4,3 +4,4 @@
 #		Pre-removal script
 #
 systemctl disable bootsetup
+systemctl disable bootsetup-docker

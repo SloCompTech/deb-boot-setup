@@ -6,3 +6,4 @@
 
 # Enable service
 systemctl enable bootsetup
+systemctl enable bootsetup-docker

@@ -29,6 +29,7 @@ systemctl status bootsetup
 	bashhistory # Clear bash history
 	dockerlogs # Clear docker logs
 	custom/	# Directory with custom scripts
+	custom-docker/ # Directory with custom docker scripts
 	hostname # Sets device hostname
 	lock # Locks down bootsetup system
 	passwd-USER # Sets user password
