@@ -14,7 +14,7 @@ if [ ! -d "$BOOTSETUP_ROOT/custom-docker" ]; then
 fi
 
 # Run custom scripts
-echo "Executed custom scripts if any"
+echo "Executed custom docker scripts if any"
 for script in $BOOTSETUP_ROOT/custom-docker/*
 do
 	if [ -f "$script" ] && [ -x "$script" ]; then

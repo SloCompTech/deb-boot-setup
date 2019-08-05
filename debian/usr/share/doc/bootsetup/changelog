@@ -1,3 +1,9 @@
+bootsetup (1.0.3)
+
+  * Added missing script.
+
+ -- Martin Dagarin <martin.dagarin@gmail.com>  2019-08-05
+
 bootsetup (1.0.2)
 
   * Added docker features.

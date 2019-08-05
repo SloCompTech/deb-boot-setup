@@ -37,6 +37,15 @@ if [ ! -d "$BOOTSETUP_BIN/scripts-docker" ]; then
 	exit 0
 fi
 
+# Run scripts
+for script in $BOOTSETUP_BIN/scripts-docker/*.sh
+do
+	([ -f "$script" ] && [ -x "$script" ]) || continue # Skip non-executable scripts
+
+	# Execute script
+	$script
+done
+
 # Check for lockfile (and lock bootsetup)
 if [ -f "$BOOTSETUP_BIN/lock" ]; then
 	# Create real lockfile
