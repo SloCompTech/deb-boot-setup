@@ -26,27 +26,32 @@ do
 	user="$(echo "$dir" | cut -d'-' -f2)" # Extract username
 	[ -n "$user" ] || continue
 
+
+	if [ "$user" != "root" ]; then # Normal users
+		[ -d "/home/$user" ] || continue
+		
+		if [ ! -d "/home/$user/.ssh" ]; then
+			mkdir /home/$user/.ssh
+			chown $user:$user /home/$user/.ssh
+			chmod 700 /home/$user/.ssh
+		fi
+	else # Root user
+		if [ ! -d "/root/.ssh" ]; then
+			mkdir /root/.ssh
+			chmod 700 /root/.ssh
+		fi
+	fi
+
 	for file in $BOOTSETUP_ROOT/sshauth-$user/*	# Each cert file
 	do
 		if [ "$user" != "root" ]; then
-			[ -d "/home/$user" ] || break
-
-			if [ ! -d "/home/$user/.ssh" ]; then
-				mkdir /home/$user/.ssh
-				chown $user:$user /home/$user/.ssh
-				chmod 700 /home/$user/.ssh
-			fi
-
 			cat $file >> /home/$user/.ssh/authorized_keys
+			echo "" >> /home/$user/.ssh/authorized_keys # Ensure at least 1 new line
 			chown $user:$user /home/$user/.ssh/authorized_keys
 			chmod 600 /home/$user/.ssh/authorized_keys
 		else
-			if [ ! -d "/root/.ssh" ]; then
-				mkdir /root/.ssh
-				chmod 700 /root/.ssh
-			fi
-
 			cat $file >> /root/.ssh/authorized_keys
+			echo "" >> /root/.ssh/authorized_keys # Ensure at least 1 new line
 			chmod 600 /root/.ssh/authorized_keys
 		fi
 	done
