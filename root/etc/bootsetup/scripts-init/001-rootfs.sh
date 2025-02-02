@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 #	Copy directory tree as root fs to system tree
 #	Directory: rootfs

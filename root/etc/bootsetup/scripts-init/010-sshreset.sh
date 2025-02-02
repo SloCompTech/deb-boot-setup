@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 #	Reset SSH configuration (usefull when using same image over and over)
 #	File: sshreset

@@ -31,7 +31,9 @@ systemctl status bootsetup
 	custom/	# Directory with custom scripts
 	custom-docker/ # Directory with custom docker scripts
 	hostname # Sets device hostname
-	lock # Locks down bootsetup system
+	lock # Lock init & config scripts
+	lock-init # Lock init scripts
+	lock-docker # Lock docker scripts
 	passwd-USER # Sets user password
 	rootfs/	# Copies files to system (structured as from /)
 	sshauth-USER # Add SSH keys to authorized_keys for user

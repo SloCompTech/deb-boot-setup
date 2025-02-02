@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 #	Change user password
 #	File: passwd-USER

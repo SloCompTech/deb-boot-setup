@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 #	Clear docker logs
 #	File: dockerlogs

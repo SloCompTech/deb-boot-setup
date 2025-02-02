@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 #	Configure hostname
 #	File: hostname

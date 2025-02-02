@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 #	Update your device
 #	File: update

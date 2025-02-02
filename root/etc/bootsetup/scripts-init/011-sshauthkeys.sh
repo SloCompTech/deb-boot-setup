@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 #	Add authorized SSH keys for remote access
 #	Files: sshauth-USER/KEYFILES

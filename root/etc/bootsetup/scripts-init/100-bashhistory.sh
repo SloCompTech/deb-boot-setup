@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #
 #	Clear bash history
 #	File: bashhistory

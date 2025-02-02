@@ -1,21 +1,12 @@
 #!/bin/bash
-
 #
 #		Bootsetup docker script
 #
-
-export BOOTSETUP_BIN=/etc/bootsetup
-export BOOTSETUP_ROOT=/boot/bootsetup
+source /etc/bootsetup/config
 
 # Check for lock file
-if [ -f "$BOOTSETUP_BIN/lock" ] && [ -f "$BOOTSETUP_BIN/lock_docker" ]; then
+if [ -f "$BOOTSETUP_LOCK_DOCKER_FILE_DEST" ]; then
 	echo "Bootsetup docker: Bootsetup locked"
-	exit 0
-fi
-
-# Check if boot partition exists
-if [ ! -d "/boot" ]; then
-	echo "Bootsetup docker: No boot partition"
 	exit 0
 fi
 
@@ -26,7 +17,7 @@ if [ ! -d "$BOOTSETUP_ROOT" ]; then
 fi
 
 # Check for disable file
-if [ -f "$BOOTSETUP_ROOT/disable" ]; then
+if [ -f "$BOOTSETUP_DISABLE_FILE" ]; then
 	echo "Bootsetup docker: DISABLED"
 	exit 0
 fi
@@ -43,13 +34,14 @@ do
 	([ -f "$script" ] && [ -x "$script" ]) || continue # Skip non-executable scripts
 
 	# Execute script
+	echo "Running: $script"
 	$script
 done
 
 # Check for lockfile (and lock bootsetup)
-if [ -f "$BOOTSETUP_BIN/lock" ]; then
+if [ -f "$BOOTSETUP_LOCK_DOCKER_FILE" ]; then
 	# Create real lockfile
-	touch $BOOTSETUP_BIN/lock_docker
+	touch $BOOTSETUP_LOCK_DOCKER_FILE_DEST
 
 	echo "Bootsetup docker: Locked down"
 fi

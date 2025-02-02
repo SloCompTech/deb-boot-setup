@@ -3,19 +3,11 @@
 #
 #		Main bootsetup script
 #
-
-export BOOTSETUP_BIN=/etc/bootsetup
-export BOOTSETUP_ROOT=/boot/bootsetup
+source /etc/bootsetup/config
 
 # Check for lock file
-if [ -f "$BOOTSETUP_BIN/lock" ]; then
+if [ -f "$BOOTSETUP_LOCK_FILE_DEST" ]; then
 	echo "Bootsetup: Bootsetup locked"
-	exit 0
-fi
-
-# Check if boot partition exists
-if [ ! -d "/boot" ]; then
-	echo "Bootsetup: No boot partition"
 	exit 0
 fi
 
@@ -26,33 +18,60 @@ if [ ! -d "$BOOTSETUP_ROOT" ]; then
 fi
 
 # Check for disable file
-if [ -f "$BOOTSETUP_ROOT/disable" ]; then
+if [ -f "$BOOTSETUP_DISABLE_FILE" ]; then
 	echo "Bootsetup: DISABLED"
 	exit 0
 fi
 
-# Check if scripts folder exists
-if [ ! -d "$BOOTSETUP_BIN/scripts" ]; then
-	echo "Bootsetup: No scripts"
-	exit 0
+if [ ! -f "$BOOTSETUP_LOCK_INIT_FILE_DEST" ] && [ -d "$BOOTSETUP_BIN/scripts-init" ]; then
+	# Run scripts
+	for script in $BOOTSETUP_BIN/scripts-init/*.sh
+	do
+		([ -f "$script" ] && [ -x "$script" ]) || continue # Skip non-executable scripts
+
+		# Execute script
+		echo "Running: $script"
+		$script
+	done
+else
+	echo "Bootsetup: No scripts-init directory or disabled"
 fi
 
-# Run scripts
-for script in $BOOTSETUP_BIN/scripts/*.sh
-do
-	([ -f "$script" ] && [ -x "$script" ]) || continue # Skip non-executable scripts
+# Check if scripts directory exists
+if [ -d "$BOOTSETUP_BIN/scripts-config" ]; then
+	# Run scripts
+	for script in $BOOTSETUP_BIN/scripts-config/*.sh
+	do
+		([ -f "$script" ] && [ -x "$script" ]) || continue # Skip non-executable scripts
 
-	# Execute script
-	$script
-done
+		# Execute script
+		echo "Running: $script"
+		$script
+	done
+else
+	echo "Bootsetup: No scripts-config directory"
+fi
+
 
 # Check for lockfile (and lock bootsetup)
-if [ -f "$BOOTSETUP_ROOT/lock" ]; then
+if [ -f "$BOOTSETUP_LOCK_INIT_FILE" ]; then
 	# Remove lockfile
-	rm $BOOTSETUP_ROOT/lock
+	rm $BOOTSETUP_LOCK_INIT_FILE
 
 	# Create real lockfile
-	touch $BOOTSETUP_BIN/lock
+	touch $BOOTSETUP_LOCK_INIT_FILE_DEST
+
+	echo "Bootsetup: Locked down init scripts"
+fi
+
+
+# Check for lockfile (and lock bootsetup)
+if [ -f "$BOOTSETUP_LOCK_FILE" ]; then
+	# Remove lockfile
+	rm $BOOTSETUP_LOCK_FILE
+
+	# Create real lockfile
+	touch $BOOTSETUP_LOCK_FILE_DEST
 
 	echo "Bootsetup: Locked down"
 fi
