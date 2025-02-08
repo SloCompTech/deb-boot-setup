@@ -1,10 +1,10 @@
 # Boot setup utils
 
-This project enables you to configure device properties such as **hostname** using a file on `/boot` partition like you enable *ssh* or *wi-fi* on Raspberry Pi.
+This project enables you to configure device properties such as **hostname** using a file on *bootfs* partition (on RPi mounted to `/boot/firmware`) like you enable *ssh* or *wi-fi* on Raspberry Pi.
 
 ## Usage
 
-- Create `bootsetup` folder in `/boot` partition (only partition seen in Windows), here will reside all config files (Note: Some files may disappear during configuration process).
+- Create `bootsetup` folder in *bootfs* partition (only partition seen in Windows), here will reside all config files (Note: Some files may disappear during configuration process).
 - Configure different parameters, see [docs folder](docs).
 
 ## Installing
@@ -25,10 +25,10 @@ systemctl status bootsetup
 ## Config folder structure
 
 ```
-/boot/bootsetup
+/boot/firmware/bootsetup # (bootfs partition)
 	bashhistory # Clear bash history
 	dockerlogs # Clear docker logs
-	custom/	# Directory with custom scripts
+	custom/	# Directory with custom scripts (can be run one time, locked with lock-init or lock)
 	custom-docker/ # Directory with custom docker scripts
 	hostname # Sets device hostname
 	lock # Lock init & config scripts
@@ -45,7 +45,7 @@ systemctl status bootsetup
 
 ### Make additional settings
 
-- Create script for parameter in `root/etc/bootsetup/scripts`.
+- Create script for parameter in `root/etc/bootsetup/scripts-init`.
 - Make script **EXECUTABLE !!**.
 - Add info below *## Config folder structure*.
 - Add detailed documentation in docs folder.

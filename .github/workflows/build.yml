@@ -11,5 +11,5 @@ jobs:
         run: |
           sudo apt update
           sudo apt install fakeroot
-      - name: Build .frb
+      - name: Build .deb
         run: make

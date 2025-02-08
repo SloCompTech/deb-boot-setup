@@ -31,6 +31,8 @@ if [ -z "$host_name" ] || [ "$(hostname)" == "$host_name" ]; then
 	exit 0
 fi
 
+echo "Changing hostname from $(hostname) to $host_name"
+
 # Save in file (to make permanent)
 echo "$host_name" > /etc/hostname
 

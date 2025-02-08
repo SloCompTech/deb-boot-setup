@@ -23,25 +23,28 @@ if [ -f "$BOOTSETUP_DISABLE_FILE" ]; then
 fi
 
 # Check if scripts folder exists
-if [ ! -d "$BOOTSETUP_BIN/scripts-docker" ]; then
+if [ -d "$BOOTSETUP_BIN/scripts-init-docker" ]; then
+	# Run scripts
+	for script in $BOOTSETUP_BIN/scripts-init-docker/*.sh
+	do
+		([ -f "$script" ] && [ -x "$script" ]) || continue # Skip non-executable scripts
+
+		# Execute script
+		echo "Running: $script"
+		$script
+	done
+else
 	echo "Bootsetup docker: No scripts"
 	exit 0
 fi
-
-# Run scripts
-for script in $BOOTSETUP_BIN/scripts-docker/*.sh
-do
-	([ -f "$script" ] && [ -x "$script" ]) || continue # Skip non-executable scripts
-
-	# Execute script
-	echo "Running: $script"
-	$script
-done
 
 # Check for lockfile (and lock bootsetup)
 if [ -f "$BOOTSETUP_LOCK_DOCKER_FILE" ]; then
 	# Create real lockfile
 	touch $BOOTSETUP_LOCK_DOCKER_FILE_DEST
+
+	# Remove lock config
+	rm $BOOTSETUP_LOCK_DOCKER_FILE
 
 	echo "Bootsetup docker: Locked down"
 fi

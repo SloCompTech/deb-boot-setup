@@ -17,6 +17,8 @@ fi
 # Remove flag file
 rm $FLAG_FILE
 
+echo "Reseting SSH keys"
+
 # Reset SSH configuration
 rm /etc/ssh/ssh_host_* # Remove old device certs
 dpkg-reconfigure openssh-server # Regenerate keys

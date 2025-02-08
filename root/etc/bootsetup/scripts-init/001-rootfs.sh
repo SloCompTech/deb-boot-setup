@@ -10,6 +10,7 @@ if [ ! -d "$BOOTSETUP_ROOT/rootfs" ]; then
 fi
 
 #	Copy whole tree structure
+echo "Copying files"
 cp -r $BOOTSETUP_ROOT/rootfs/* /
 
 # Remove dir

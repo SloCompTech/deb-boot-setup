@@ -3,7 +3,7 @@
 # Configuration
 #
 export BOOTSETUP_BIN=/etc/bootsetup
-export BOOTSETUP_ROOT=/boot/bootsetup
+export BOOTSETUP_ROOT=/boot/firmware/bootsetup
 
 export BOOTSETUP_DISABLE_FILE=$BOOTSETUP_ROOT/disable
 

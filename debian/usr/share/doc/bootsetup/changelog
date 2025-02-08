@@ -1,3 +1,10 @@
+bootsetup (1.1.0)
+  * Added config scripts which can be run every time
+  * Changed locking mechanism
+  * *bootfs* partition default path was changed to `/boot/firmware` mount (according to RPi)
+
+ -- Martin Dagarin <martin.dagarin@gmail.com>  2025-02-05
+
 bootsetup (1.0.4)
 
   * Fixed SSH auth script (now correctly adds new lines to separate entries).

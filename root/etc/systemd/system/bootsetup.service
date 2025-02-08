@@ -12,7 +12,8 @@ Description=Setup scripts to run on Boot
 Documentation=https://github.com/SloCompTech/deb-boot-setup
 After=boot.mount
 After=networking.service
-Requires=network.target
+After=network-online.target
+Requires=network.target network-online.target
 
 [Service]
 Type=oneshot
