@@ -34,11 +34,16 @@ systemctl status bootsetup
 	lock # Lock init & config scripts
 	lock-init # Lock init scripts
 	lock-docker # Lock docker scripts
+	nftables.conf # nftables config
 	passwd-USER # Sets user password
 	rootfs/	# Copies files to system (structured as from /)
 	sshauth-USER # Add SSH keys to authorized_keys for user
 	sshreset # Reset SSH keys
 	upgrade # Update & upgrade using apt
+	wifi
+		SSID_NAME # File with SSID (1 line) and password (2 line)
+	wireguard
+		INTERFACE_NAME.conf # WireGuard config file
 ```
 
 ## Contributing
