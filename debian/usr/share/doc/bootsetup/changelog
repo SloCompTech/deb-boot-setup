@@ -1,4 +1,4 @@
-bootsetup (1.1.0)
+bootsetup (1.1.1)
 
   * Added Wi-Fi config script for NetworkManager
   * Added WireGuard config script

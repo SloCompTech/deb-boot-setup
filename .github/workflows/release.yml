@@ -17,7 +17,7 @@ jobs:
       - name: Build .deb
         run: |
           make
-          mv dist/bootsetup.deb dist/bootsetup_${{ github.ref }}.deb
+          mv dist/bootsetup.deb dist/bootsetup_${{ github.ref_name }}.deb
       - name: release
         uses: actions/create-release@v1
         id: create_release
@@ -33,4 +33,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["./dist/bootsetup_${{ github.ref }}.deb"]'
+          asset_paths: '["./dist/bootsetup_${{ github.ref_name }}.deb"]'
